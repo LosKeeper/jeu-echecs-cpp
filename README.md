@@ -1,7 +1,8 @@
 # <img src="assets/icon.png" alt="icon" width="6%"/> Jeu d'échecs 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
-![compiler](https://img.shields.io/badge/compiler-g++-red.svg)
-![license](https://img.shields.io/badge/license-GPL_3.0-yellow.svg)
+[![compiler](https://img.shields.io/badge/compiler-g++-red.svg)](https://github.com/LosKeeper/jeu-echecs-c-/blob/main/Makefile)
+[![license](https://img.shields.io/badge/license-GPL_3.0-yellow.svg)](https://github.com/LosKeeper/jeu-echecs-c-/blob/main/LICENSE)
+[![author](https://img.shields.io/badge/author-LosKeeper-blue)](https://github.com/LosKeeper)
 > Il s'agit d'un projet de jeu d'échecs codée en C++ qui se joue en 1vs1 dans le terminal.
 
 1. [Compilation](#compilation)
