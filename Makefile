@@ -47,6 +47,6 @@ doc:
 
 tests:
 	@make
-	cd tests/parties-test && ./test-level.sh 4 && ./test-level.sh 5 && ./test-level.sh 6
+	@cd tests/parties-test && ./test-level.sh 4 && ./test-level.sh 5 && ./test-level.sh 6
 	
 		
