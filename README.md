@@ -1,5 +1,5 @@
 # <img src="assets/icon.png" alt="icon" width="6%"/> Jeu d'échecs 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
+[![version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/LosKeeper/jeu-echecs-c-)
 [![compiler](https://img.shields.io/badge/compiler-g++-red.svg)](https://github.com/LosKeeper/jeu-echecs-c-/blob/main/Makefile)
 [![license](https://img.shields.io/badge/license-GPL_3.0-yellow.svg)](https://github.com/LosKeeper/jeu-echecs-c-/blob/main/LICENSE)
 [![author](https://img.shields.io/badge/author-LosKeeper-blue)](https://github.com/LosKeeper)
