@@ -1,5 +1,5 @@
 # <img src="assets/icon.png" alt="icon" width="6%"/> Jeu d'échecs 
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
+![version](https://img.shields.io/badge/version-1.0.1-blue.svg) 
 ![compiler](https://img.shields.io/badge/compiler-g++-red.svg)
 ![license](https://img.shields.io/badge/license-GPL_3.0-yellow.svg)
 > Il s'agit d'un projet de jeu d'échecs codée en C++ qui se joue en 1vs1 dans le terminal.
