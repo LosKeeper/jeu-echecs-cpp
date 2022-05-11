@@ -1,3 +1,4 @@
+#include <SDL2/SDL.h>
 #include <iostream>
 #include <ostream>
 #include <pthread.h>
@@ -16,7 +17,46 @@ using namespace std;
 #include "../include/interruption.h"
 #include "../include/jeu.h"
 
+void draw_rectangle_fill(SDL_Renderer *renderer, const SDL_Rect &rectangle,
+                         const SDL_Color &color) {
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
+    for (auto y = rectangle.y; y < rectangle.y + rectangle.h; y++) {
+        for (auto x = rectangle.x; x < rectangle.x + rectangle.w; x++) {
+            SDL_RenderDrawPoint(renderer, x, y);
+        }
+    }
+}
+
 int main() {
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Window *window =
+        SDL_CreateWindow("Echec", SDL_WINDOWPOS_CENTERED,
+                         SDL_WINDOWPOS_CENTERED, 800, 800, SDL_WINDOW_SHOWN);
+    SDL_Renderer *renderer =
+        SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);
+    // Make all the 64 cases of the chessboard with a rectangle of size 10x10
+    SDL_Rect rect[NBCOL][NBCOL];
+    for (int i = 0; i < NBCOL; i++) {
+        for (int j = 0; j < NBCOL; j++) {
+            rect[i][j].x = i * 100;
+            rect[i][j].y = j * 100;
+            rect[i][j].w = 100;
+            rect[i][j].h = 100;
+            // Draw in brown for pair of lines and in white for impair of lines
+            if ((i + j) % 2 == 0) {
+                printf("%d %d\n", i, j);
+                draw_rectangle_fill(renderer, rect[i][j], {100, 100, 100, 255});
+            } else {
+                draw_rectangle_fill(renderer, rect[i][j], {255, 255, 255, 255});
+            }
+        }
+    }
+    SDL_RenderPresent(renderer);
+
     signal(SIGTSTP, signal_handler);
     signal(SIGINT, signal_handler);
     Jeu monjeu;
@@ -75,6 +115,11 @@ int main() {
             stop = true;
     } while (!stop && !monjeu.partie_finie(monjeu.echiquier));
     monjeu.affichage_canonique();
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
     exit(EXIT_SUCCESS);
 }
 
